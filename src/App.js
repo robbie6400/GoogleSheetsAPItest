@@ -9,7 +9,7 @@ export default function App() {
   const [salary, setSalary] = useState('');
   const [hobby, setHobby] = useState('');
   const [APIdata, setAPIdata] = useState([]);
-  const [refresh, setRefresh] = useState('');
+  const [refresh, setRefresh] = useState([]);
 
   {/*
   
@@ -21,6 +21,13 @@ export default function App() {
     axios.post('https://sheet.best/api/sheets/6298a724-93d8-43ca-8884-a07f7a16d7b6',{
       name, age, salary, hobby
     })
+    .then((data) => {
+      setRefresh(data);
+      setName('');
+      setAge('');
+      setSalary('');
+      setHobby('');
+    })
   }
 
   useEffect(() => {
@@ -28,11 +35,11 @@ export default function App() {
     .then((incomingData) => {
       setAPIdata(incomingData.data)
     })  
-  }, [])
+  }, [refresh])
     
 return (
   <>
-      <Header as='h2'>React Google Sheets Test Form Thing </Header>
+      <Header as='h2'>React Google Sheets Test Form </Header>
         <Form>
           <Form.Field>
             <label>Name</label>
