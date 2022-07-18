@@ -18,13 +18,13 @@ export default function App() {
 
   */}
   const onSubmit = () => {
-    axios.post('https://sheet.best/api/sheets/5e54aab8-aa20-4efe-b2b5-3825cfcdbacd',{
+    axios.post('https://sheet.best/api/sheets/6298a724-93d8-43ca-8884-a07f7a16d7b6',{
       name, age, salary, hobby
     })
   }
 
   useEffect(() => {
-    axios.get('https://sheet.best/api/sheets/5e54aab8-aa20-4efe-b2b5-3825cfcdbacd')
+    axios.get('https://sheet.best/api/sheets/6298a724-93d8-43ca-8884-a07f7a16d7b6')
     .then((incomingData) => {
       setAPIdata(incomingData.data)
     })  
